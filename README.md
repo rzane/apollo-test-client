@@ -1,4 +1,4 @@
-# apollo-test-client
+# apollo-test-client [![Build Status](https://travis-ci.org/rzane/apollo-test-client.svg?branch=master)](https://travis-ci.org/rzane/apollo-test-client)
 
 A set of functions to generate instances of ApolloClient for testing.
 

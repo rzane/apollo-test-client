@@ -6,9 +6,9 @@ import { ApolloLink, Observable } from "apollo-link";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { MockLink, MockedResponse } from "react-apollo/test-links";
 import {
-  makeExecutableSchema,
+  IMocks,
   addMockFunctionsToSchema,
-  IMocks
+  makeExecutableSchema
 } from "graphql-tools";
 
 /**

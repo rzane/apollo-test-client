@@ -1,6 +1,6 @@
 {
   "name": "apollo-test-client",
-  "licence": "MIT",
+  "license": "MIT",
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/apollo-test-client.esm.js",

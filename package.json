@@ -12,6 +12,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
+    "prepublish": "tsdx test && tsdx build",
     "format": "pretty --write '{src,test}/**/*.ts'"
   },
   "dependencies": {

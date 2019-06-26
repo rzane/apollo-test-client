@@ -13,13 +13,20 @@ const delay = (ms: number) => {
 };
 
 const schema = `
+scalar Date
+scalar DateTime
+scalar Decimal
+
 type Query {
   hello: String!
+  date: Date!
+  datetime: DateTime!
+  decimal: Decimal!
 }
 `;
 
 const query = gql`
-  {
+  query {
     hello
   }
 `;
@@ -84,5 +91,21 @@ describe('createSchemaClient', () => {
     const client = createSchemaClient(schema, mocks);
     const result = await client.query({ query });
     expect(result.data.hello).toEqual("PASS");
+  });
+
+  it("provides a mocks for common scalars", async () => {
+    const query = gql`
+      query {
+        date
+        datetime
+        decimal
+      }
+    `;
+
+    const client = createSchemaClient(schema);
+    const result = await client.query({ query });
+    expect(result.data.date).toEqual("2019-01-01");
+    expect(result.data.datetime).toEqual("2019-01-01T00:00:00Z");
+    expect(result.data.decimal).toEqual("2.5");
   });
 });

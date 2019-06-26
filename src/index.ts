@@ -11,14 +11,23 @@ import {
   makeExecutableSchema
 } from "graphql-tools";
 
+const DEFAULT_MOCKS = {
+  Date: () => "2019-01-01",
+  DateTime: () => "2019-01-01T00:00:00Z",
+  Decimal: () => "2.5"
+};
+
 /**
  * Useful for testing a Apollo integration using randomly
  * generated return values.
  */
-export const createSchemaClient = (typeDefs: string, mocks?: IMocks) => {
+export const createSchemaClient = (typeDefs: string, mocks: IMocks = {}) => {
   const schema = makeExecutableSchema({ typeDefs });
 
-  addMockFunctionsToSchema({ schema, mocks });
+  addMockFunctionsToSchema({
+    schema,
+    mocks: { ...DEFAULT_MOCKS, ...mocks }
+  });
 
   return new ApolloClient({
     link: new SchemaLink({ schema }),

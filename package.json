@@ -12,27 +12,26 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "prepublish": "tsdx test && tsdx build",
+    "prepublishOnly": "tsdx test && tsdx build",
     "format": "pretty --write '{src,test}/**/*.ts'"
   },
   "dependencies": {
-    "apollo-link-schema": "^1.2.3",
-    "graphql-tools": "^4.0.5"
+    "apollo-link-schema": "^1.2.4",
+    "graphql-tools": "^4.0.6"
   },
   "devDependencies": {
-    "@types/graphql": "^14.2.2",
-    "@types/jest": "^24.0.15",
-    "apollo-cache-inmemory": "^1.6.2",
-    "apollo-client": "^2.6.3",
-    "apollo-link": "^1.2.12",
-    "graphql": "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0",
+    "@types/jest": "^24.0.21",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link": "^1.2.13",
+    "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
-    "jest-mock": "^24.8.0",
+    "jest-mock": "^24.9.0",
     "prettier": "^1.18.2",
     "react-apollo": "^2.5.8",
-    "tsdx": "^0.7.2",
+    "tsdx": "^0.11.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.5.2"
+    "typescript": "^3.6.4"
   },
   "peerDependencies": {
     "apollo-cache-inmemory": "^1.6.2",

@@ -4,7 +4,7 @@ import { GraphQLError } from "graphql";
 import { ApolloClient } from "apollo-client";
 import { ApolloLink, Observable } from "apollo-link";
 import { InMemoryCache } from "apollo-cache-inmemory";
-import { MockLink, MockedResponse } from "react-apollo/test-links";
+import { MockLink, MockedResponse } from "./MockLink";
 import {
   IMocks,
   addMockFunctionsToSchema,
@@ -84,3 +84,5 @@ export const createErrorClient = (errors: GraphQLError[]) => {
     cache: new InMemoryCache()
   });
 };
+
+export { MockLink, MockedResponse };

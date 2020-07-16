@@ -24,7 +24,7 @@
     "apollo-client": "*",
     "apollo-link": "*",
     "graphql": "*",
-    "jest-mock": "*"
+    "jest": "*"
   },
   "devDependencies": {
     "@types/jest": "^24.0.21",

@@ -12,8 +12,8 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "prepublishOnly": "tsdx test && tsdx build",
-    "format": "pretty --write '{src,test}/**/*.ts'"
+    "lint": "tsdx lint src test",
+    "prepare": "tsdx build"
   },
   "dependencies": {
     "@graphql-tools/mock": "^6.0.14",

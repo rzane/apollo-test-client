@@ -8,7 +8,7 @@ import {
   ApolloLink,
   FetchResult,
   Observable,
-  GraphQLRequest
+  GraphQLRequest,
 } from "apollo-link";
 
 export interface MockedResponse {
@@ -24,7 +24,7 @@ export class MockLink extends ApolloLink {
 
   constructor(mockedResponses: MockedResponse[]) {
     super();
-    mockedResponses.forEach(mockedResponse => {
+    mockedResponses.forEach((mockedResponse) => {
       this.addMockedResponse(mockedResponse);
     });
   }
@@ -58,7 +58,7 @@ export class MockLink extends ApolloLink {
       );
     }
 
-    return new Observable<FetchResult>(observer => {
+    return new Observable<FetchResult>((observer) => {
       let timer = setTimeout(
         () => {
           if (error) {
@@ -83,6 +83,6 @@ const requestToKey = (request: GraphQLRequest): string => {
 
   return JSON.stringify({
     variables: request.variables || {},
-    query: queryString
+    query: queryString,
   });
 };

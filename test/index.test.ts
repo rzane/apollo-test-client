@@ -5,11 +5,11 @@ import {
   createLoadingClient,
   createMockedClient,
   createStubbedClient,
-  createSchemaClient
+  createSchemaClient,
 } from "../src";
 
 const delay = (ms: number) => {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
 const schema = `
@@ -47,7 +47,7 @@ describe("createLoadingClient", () => {
     const client = createLoadingClient();
     const result = await Promise.race([
       client.query({ query }),
-      delay(300).then(() => "PASS")
+      delay(300).then(() => "PASS"),
     ]);
 
     expect(result).toEqual("PASS");
@@ -70,8 +70,8 @@ describe("createStubbedClient", () => {
     const client = createStubbedClient([
       {
         request: { query },
-        result: { data: { hello: "PASS" } }
-      }
+        result: { data: { hello: "PASS" } },
+      },
     ]);
 
     const result = await client.query({ query });
@@ -79,7 +79,7 @@ describe("createStubbedClient", () => {
   });
 });
 
-describe('createSchemaClient', () => {
+describe("createSchemaClient", () => {
   it("generates random data", async () => {
     const client = createSchemaClient(schema);
     const result = await client.query({ query });

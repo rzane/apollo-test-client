@@ -5,7 +5,7 @@ import { ApolloClient } from "apollo-client";
 import { ApolloLink, Observable } from "apollo-link";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { MockLink, MockedResponse } from "./MockLink";
-import { IMocks, addMocksToSchema } from "@graphql-tools/mock";
+import { MockList, IMocks, addMocksToSchema } from "@graphql-tools/mock";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 
 const DEFAULT_MOCKS = {
@@ -80,4 +80,4 @@ export const createErrorClient = (errors: GraphQLError[]) => {
   });
 };
 
-export { MockLink, MockedResponse };
+export { MockList, MockLink, MockedResponse };

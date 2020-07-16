@@ -5,16 +5,13 @@ import { ApolloClient } from "apollo-client";
 import { ApolloLink, Observable } from "apollo-link";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { MockLink, MockedResponse } from "./MockLink";
-import {
-  IMocks,
-  addMockFunctionsToSchema,
-  makeExecutableSchema
-} from "graphql-tools";
+import { IMocks, addMocksToSchema } from "@graphql-tools/mock";
+import { makeExecutableSchema } from "@graphql-tools/schema";
 
 const DEFAULT_MOCKS = {
   Date: () => "2019-01-01",
   DateTime: () => "2019-01-01T00:00:00Z",
-  Decimal: () => "2.5"
+  Decimal: () => "2.5",
 };
 
 /**
@@ -22,16 +19,14 @@ const DEFAULT_MOCKS = {
  * generated return values.
  */
 export const createSchemaClient = (typeDefs: string, mocks: IMocks = {}) => {
-  const schema = makeExecutableSchema({ typeDefs });
-
-  addMockFunctionsToSchema({
-    schema,
-    mocks: { ...DEFAULT_MOCKS, ...mocks }
+  const schema = addMocksToSchema({
+    schema: makeExecutableSchema({ typeDefs }),
+    mocks: { ...DEFAULT_MOCKS, ...mocks },
   });
 
   return new ApolloClient({
     link: new SchemaLink({ schema }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 };
 
@@ -41,7 +36,7 @@ export const createSchemaClient = (typeDefs: string, mocks: IMocks = {}) => {
 export const createStubbedClient = (mocks: MockedResponse[]) => {
   return new ApolloClient({
     cache: new InMemoryCache(),
-    link: new MockLink(mocks)
+    link: new MockLink(mocks),
   });
 };
 
@@ -64,7 +59,7 @@ export const createLoadingClient = () => {
 
   return new ApolloClient({
     link,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 };
 
@@ -73,7 +68,7 @@ export const createLoadingClient = () => {
  */
 export const createErrorClient = (errors: GraphQLError[]) => {
   const link = new ApolloLink(() => {
-    return new Observable(observer => {
+    return new Observable((observer) => {
       observer.next({ errors });
       observer.complete();
     });
@@ -81,7 +76,7 @@ export const createErrorClient = (errors: GraphQLError[]) => {
 
   return new ApolloClient({
     link,
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 };
 

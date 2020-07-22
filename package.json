@@ -16,7 +16,7 @@
     "prepare": "tsdx build"
   },
   "dependencies": {
-    "@graphql-tools/mock": "^6.0.14",
+    "@graphql-tools/mock": "^6.0.15",
     "@graphql-tools/schema": "^6.0.14",
     "apollo-link-schema": "^1.2.4"
   },

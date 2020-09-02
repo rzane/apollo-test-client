@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@graphql-tools/mock": "^6.1.0",
-    "@graphql-tools/schema": "^6.1.0",
+    "@graphql-tools/schema": "^6.2.0",
     "apollo-link-schema": "^1.2.4"
   },
   "peerDependencies": {

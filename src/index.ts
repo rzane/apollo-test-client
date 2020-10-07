@@ -1,7 +1,7 @@
 import jestMock from "jest-mock";
 import { GraphQLError } from "graphql";
 import { SchemaLink } from "@apollo/client/link/schema";
-import { MockLink, MockedResponse } from "./MockLink";
+import { MockLink, MockedResponse } from "@apollo/client/testing";
 import { MockList, IMocks, addMocksToSchema } from "@graphql-tools/mock";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import {

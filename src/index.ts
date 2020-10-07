@@ -1,12 +1,15 @@
 import jestMock from "jest-mock";
-import { SchemaLink } from "apollo-link-schema";
 import { GraphQLError } from "graphql";
-import { ApolloClient } from "apollo-client";
-import { ApolloLink, Observable } from "apollo-link";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import { SchemaLink } from "@apollo/client/link/schema";
 import { MockLink, MockedResponse } from "./MockLink";
 import { MockList, IMocks, addMocksToSchema } from "@graphql-tools/mock";
 import { makeExecutableSchema } from "@graphql-tools/schema";
+import {
+  ApolloClient,
+  ApolloLink,
+  Observable,
+  InMemoryCache,
+} from "@apollo/client/core";
 
 const DEFAULT_MOCKS = {
   Date: () => "2019-01-01",

@@ -9,7 +9,7 @@ import {
   FetchResult,
   Observable,
   GraphQLRequest,
-} from "apollo-link";
+} from "@apollo/client/core";
 
 export interface MockedResponse {
   request: GraphQLRequest;

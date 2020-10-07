@@ -36,9 +36,7 @@ describe("createErrorClient", () => {
     const error = new GraphQLError("whoops");
     const client = createErrorClient([error]);
 
-    await expect(client.query({ query })).rejects.toThrowError(
-      "GraphQL error: whoops"
-    );
+    await expect(client.query({ query })).rejects.toThrowError("whoops");
   });
 });
 

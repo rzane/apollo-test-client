@@ -16,7 +16,7 @@
     "prepare": "tsdx build"
   },
   "dependencies": {
-    "@graphql-tools/mock": "^6.2.4",
+    "@graphql-tools/mock": "^7.0.0",
     "@graphql-tools/schema": "^7.0.0"
   },
   "peerDependencies": {

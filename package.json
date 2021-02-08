@@ -22,7 +22,7 @@
   "peerDependencies": {
     "@apollo/client": "^3.0.0",
     "jest": "*",
-    "react": "^16.8.0"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@apollo/client": "^3.3.7",

@@ -6,7 +6,7 @@ import {
   createMockedClient,
   createStubbedClient,
   createSchemaClient,
-} from "../src";
+} from ".";
 
 const delay = (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms));

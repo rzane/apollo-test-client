@@ -1,16 +1,13 @@
-import gql from "graphql-tag";
-import { GraphQLError } from "graphql";
-import {
+const gql = require("graphql-tag");
+const { GraphQLError } = require("graphql");
+
+const {
   createErrorClient,
   createLoadingClient,
   createMockedClient,
   createStubbedClient,
   createSchemaClient,
-} from ".";
-
-const delay = (ms: number) => {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-};
+} = require(".");
 
 const schema = `
 scalar Date
@@ -30,6 +27,10 @@ const query = gql`
     hello
   }
 `;
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 describe("createErrorClient", () => {
   it("produces an error", async () => {
@@ -55,7 +56,7 @@ describe("createLoadingClient", () => {
 describe("createMockedClient", () => {
   it("is constructed from Jest's mock functions", async () => {
     const client = createMockedClient();
-    client.query.mockResolvedValue("PASS" as any);
+    client.query.mockResolvedValue("PASS");
 
     const result = await client.query({ query });
     expect(client.query).toHaveBeenCalledWith({ query });

@@ -21,6 +21,9 @@ jobs:
       - name: Test
         run: yarn test --ci --coverage
 
+      - name: Typecheck
+        run: yarn typecheck
+
       - name: Publish
         run: bin/publish "${GITHUB_REF:11}"
         env:
